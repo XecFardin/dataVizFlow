@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 )
 
-// This is a placeholder for the dataset model.
-// You should implement your logic to fetch datasets from the source.
 type Weather struct {
 	Date          string  `json:"date"`
 	Temperature   float64 `json:"temperature"`

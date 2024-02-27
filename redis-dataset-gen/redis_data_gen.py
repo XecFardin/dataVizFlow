@@ -3,10 +3,8 @@ import random
 import redis
 import time
 
-# Connect to Redis
 r = redis.Redis(host='127.0.0.1', port=6379, db=0)
 
-# Function to generate synthetic data
 import random
 from datetime import datetime, timedelta
 
@@ -71,7 +69,6 @@ def generate_weather_data(length):
 
     
 
-# Main function to send data to Redis
 def send_data_to_redis(Key,data):
 
     json_data = json.dumps(data)
@@ -80,12 +77,10 @@ def send_data_to_redis(Key,data):
 
     print(f" {json_data}")
 
-    # Wait for some time before sending t,he next data
-    time.sleep(3)  # Adjust the interval as needed
+    time.sleep(3)  
 
 if __name__ == "__main__":
     data_length = 35
-    # Generate random data for birth rates, internet towers, and weather
     random_birth_data = generate_birth_data(data_length)
     random_internet_data = generate_internet_tower_data(data_length)
     random_weather_data = generate_weather_data(data_length)

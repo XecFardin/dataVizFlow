@@ -16,14 +16,12 @@ func NewDatasetHandler() *DatasetHandler {
 }
 
 func (h *DatasetHandler) GetWeather(c *gin.Context) {
-	// Check if data exists in Redis
 	var datasets []models.Weather
 	cachedData, err := redis.GetCachedData("weather")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
-	// Call the common function to fetch datasets
 	err = models.FetchDatasetsFromSource(cachedData, &datasets)
 	if err != nil {
 		fmt.Println("Error:", err)
@@ -34,7 +32,6 @@ func (h *DatasetHandler) GetWeather(c *gin.Context) {
 }
 
 func (h *DatasetHandler) GetInternet(c *gin.Context) {
-	// Check if data exists in Redis
 	var datasets []models.Internet
 	cachedData, err := redis.GetCachedData("internet")
 	if err != nil {
@@ -51,7 +48,6 @@ func (h *DatasetHandler) GetInternet(c *gin.Context) {
 }
 
 func (h *DatasetHandler) GetBirthRate(c *gin.Context) {
-	// Check if data exists in Redis
 	var datasets []models.BirthRate
 	cachedData, err := redis.GetCachedData("birthRate")
 	if err != nil {
